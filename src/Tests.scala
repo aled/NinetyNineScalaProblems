@@ -57,5 +57,15 @@ object Tests {
       flatten(List(List(1, 1), 2, List(3, List(5, 8)))) == List(1, 1, 2, 3, 5, 8)
     ))
 
+    //  P08 (**) Eliminate consecutive duplicates of list elements.
+    //  If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
+    //
+    //  Example:
+    //
+    //  scala> compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+    //  res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
+    P08.versions.foreach(compress => assert(
+      compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) == List('a, 'b, 'c, 'a, 'd, 'e)
+    ))
   }
 }
