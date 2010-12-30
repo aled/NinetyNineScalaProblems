@@ -147,7 +147,9 @@ object Tests {
     //
     //  scala> drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     //  res0: List[Symbol] = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
-
+    P16.versions.foreach(drop => assert(
+      drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+    ))
 
     //  P17 (*) Split a list into two parts.
     //  The length of the first part is given. Use a Tuple for your result.
@@ -156,6 +158,9 @@ object Tests {
     //
     //  scala> split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     //  res0: (List[Symbol], List[Symbol]) = (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+    P17.versions.foreach(split => assert(
+      split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+    ))
 
     //  P18 (**) Extract a slice from a list.
     //  Given two indices, I and K, the slice is the list containing the elements from and including the Ith element up to but not including the Kth element of the original list. Start counting the elements with 0.
@@ -164,7 +169,10 @@ object Tests {
     //
     //  scala> slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     //  res0: List[Symbol] = List('d, 'e, 'f, 'g)
-    //
+    P18.versions.foreach(slice => assert(
+      slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == List('d, 'e, 'f, 'g)
+    ))
+
     //  P19 (**) Rotate a list N places to the left.
     //  Examples:
     //
