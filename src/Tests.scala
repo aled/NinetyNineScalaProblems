@@ -181,7 +181,13 @@ object Tests {
     //
     //  scala> rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     //  res1: List[Symbol] = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
-    //
+    P19.versions.foreach(rotate => assert(
+      rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
+    ))
+    P19.versions.foreach(rotate => assert(
+      rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+    ))
+
     //  P20 (*) Remove the Kth element from a list.
     //  Return the list and the removed element in a Tuple. Elements are numbered from 0.
     //
@@ -189,19 +195,28 @@ object Tests {
     //
     //  scala> removeAt(1, List('a, 'b, 'c, 'd))
     //  res0: (List[Symbol], Symbol) = (List('a, 'c, 'd),'b)
-    //
+    P20.versions.foreach(removeAt => assert(
+      removeAt(1, List('a, 'b, 'c, 'd)) == (List('a, 'c, 'd),'b)
+    ))
+
     //  P21 (*) Insert an element at a given position into a list.
     //  Example:
     //
     //  scala> insertAt('new, 1, List('a, 'b, 'c, 'd))
     //  res0: List[Symbol] = List('a, 'new, 'b, 'c, 'd)
-    //
+    P21.versions.foreach(insertAt => assert(
+      insertAt('new, 1, List('a, 'b, 'c, 'd)) == List('a, 'new, 'b, 'c, 'd)
+    ))
+
     //  P22 (*) Create a list containing all integers within a given range.
     //  Example:
     //
     //  scala> range(4, 9)
     //  res0: List[Int] = List(4, 5, 6, 7, 8, 9)
-    //
+    P22.versions.foreach(range => assert(
+      range(4, 9) == List(4, 5, 6, 7, 8, 9)
+    ))
+
     //  P23 (**) Extract a given number of randomly selected elements from a list.
     //  Example:
     //
@@ -209,6 +224,13 @@ object Tests {
     //  res0: List[Symbol] = List('e, 'd, 'a)
     //
     //  Hint: Use the solution to problem P20
+    P23.versions.foreach(randomSelect => assert(
+     randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)) == List('b, 'a, 'g)  // these are the items returned by seeding j.u.Random with 0
+                                                                            // and then calling nextInt(7), nextInt(6) and nextInt(5),
+                                                                            // removing the selected item from the list each time.
+    ))
+
+
     //  P24 (*) Lotto: Draw N different random numbers from the set 1..M.
     //  Example:
     //
